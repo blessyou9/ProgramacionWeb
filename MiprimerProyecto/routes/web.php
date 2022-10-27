@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ControladorComics;
+use App\Http\Controllers\ControladorPaginas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +19,11 @@ Route::get('/', function () {
 });
 
 
-Route::get('/principal', [ControladorComics::class, 'Fprincipal'])->name('Nprincipal');
-Route::get('/formulario', [ControladorComics::class, 'Fformulario'])->name('Nformulario');
-Route::get('/tabla', [ControladorComics::class, 'Ftabla'])->name('Ntabla');
-Route::post('/consulta', [ControladorComics::class, 'Fconsulta'])->name('Nconsulta');
+Route::get('/principal', [ControladorPaginas::class, 'Fprincipal'])->name('Nprincipal');
+Route::get('/formulario', [ControladorPaginas::class, 'Fformulario'])->name('Nformulario');
+Route::get('/tabla', [ControladorPaginas::class, 'Ftabla'])->name('Ntabla');
+Route::get('/consulta', [ControladorPaginas::class, 'Fconsulta'])->name('Nconsulta');
+
+//mandar datos->post al form
+Route::post('/guardarRecuerdos', [ControladorPaginas::class, 'FprocesarRecuerdos'])->name('Nprocesar');
 
